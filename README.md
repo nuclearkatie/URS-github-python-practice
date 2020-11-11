@@ -36,9 +36,14 @@ Do not forget to label your axes and use legends when applicable!
 
 ![n(v) = 4 \pi N e^{\frac{-m v^2}{2 kT}} v^2 \left( \frac{m}{2 \pi kT} \right )^{\frac{3}{2}} ](https://latex.codecogs.com/gif.latex?n(v)&space;=&space;4&space;\pi&space;N&space;e^{\frac{-m&space;v^2}{2&space;kT}}&space;v^2&space;\left(&space;\frac{m}{2&space;\pi&space;kT}&space;\right&space;)^{\frac{3}{2}})
 
-    where N represents the total number of particles; m is the mass of each particle; n is a quantity such that ndv gives the number of particles with velocities between v and v+dv;k is the Boltzmann constant and T the absolute temperature.
+   - where N represents the total number of particles
+   - m is the mass of each particle
+   - n is a quantity such that ndv gives the number of particles with velocities between v and v+dv
+   - k is the Boltzmann constant
+   - T is the absolute temperature
 
-use
+   use
+
 - m = 1.67*10 -27 kg
 - k = 1.38*10 -23 J/K
 - N =1000
