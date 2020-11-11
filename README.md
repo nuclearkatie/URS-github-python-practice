@@ -56,11 +56,13 @@ Do not forget to label your axes and use legends when applicable!
 
    Each name is a _node_, and their connections are _edges_. An edge list is given below
 
-   |Joe | Jill|
-   |Joe | Kamala|
-   |Kamala | Doug|
-   |Barack | Joe|
-   |Barack | Kamala|
+   | Person1 | Person2 |
+   |---------|---------|
+   | Joe     | Jill    |
+   | Joe     | Kamala  |
+   | Kamala  | Doug    |
+   | Barack  | Joe     |
+   | Barack  | Kamala  |
 
    draw a graph of this network
 
