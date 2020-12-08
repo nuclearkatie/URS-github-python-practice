@@ -10,47 +10,9 @@ Once you're ready, start below. Feel free to message me on slack or even open an
 - Try adding, committing, and pushing along the way
 - Once you have finished the problems, committed all your work, and pushed it to your fork, open a pull request (PR) to my branch. We'll reveiw it at the next meeting!
 
-Do not forget to label your axes and use legends when applicable!
+## Problems
 
-## Problems*
-
-1. Plot the function ![](https://latex.codecogs.com/gif.latex?f(\beta)&space;=&space;\beta&space;&plus;&space;h&space;\cdot&space;tan(\beta)) as a function of beta, where h=1, from - 4 pi to 4 pi. Note that tangent is discontinuous. How many points do you need to get a good sense of the shape of the graph? Try using a small number (like 10, or 50), and then a much larger one (10000 or above)
-
-2. Nuclear engineers often use an equation called the Point Reactor Kinetics Equations to study how neutrons in a nuclear reactor behaves in time.
-
-![\frac{dn(t)}{dt} = \frac{\rho - \beta}{\Lambda} \cdot n(t) + \lambda \cdot c(t))](https://latex.codecogs.com/gif.latex?\frac{dn(t)}{dt}&space;=&space;\frac{\rho&space;-&space;\beta}{\Lambda}&space;\cdot&space;n(t)&space;&plus;&space;\lambda&space;\cdot&space;c(t)))
-
-![\frac{dc(t)}{dt} = \frac{beta}{\Lambda} \cdot n(t) - \lambda \cdot c(t)](https://latex.codecogs.com/gif.latex?\frac{dc(t)}{dt}&space;=&space;\frac{beta}{\Lambda}&space;\cdot&space;n(t)&space;-&space;\lambda&space;\cdot&space;c(t))
-
-   With some simplifications and specific conditions, a solution to point reactor kinetics is
-
-![n(t) = A e^{w_1 t} + B e^{w_2 t}](https://latex.codecogs.com/gif.latex?n(t)&space;=&space;A&space;e^{w_1&space;t}&space;&plus;&space;B&space;e^{w_2&space;t})
-
-   Let's use A=1.5, B=-0.5, w1 = 0.004, and w2=-5. Plot this graph over time
-
-  a. 0 < t < 0.1 seconds
-
-  b. 0 < t < 10 seconds
-
-3. The "temperature" of neutrons is usually given by a [Maxwellian distribution](https://en.wikipedia.org/wiki/Maxwell%E2%80%93Boltzmann_distribution)
-
-![n(v) = 4 \pi N e^{\frac{-m v^2}{2 kT}} v^2 \left( \frac{m}{2 \pi kT} \right )^{\frac{3}{2}} ](https://latex.codecogs.com/gif.latex?n(v)&space;=&space;4&space;\pi&space;N&space;e^{\frac{-m&space;v^2}{2&space;kT}}&space;v^2&space;\left(&space;\frac{m}{2&space;\pi&space;kT}&space;\right&space;)^{\frac{3}{2}})
-
-   - where N represents the total number of particles
-   - m is the mass of each particle
-   - n is a quantity such that ndv gives the number of particles with velocities between v and v+dv
-   - k is the Boltzmann constant
-   - T is the absolute temperature
-
-   use
-
-- m = 1.67*10 -27 kg
-- k = 1.38*10 -23 J/K
-- N =1000
-
-   Plot the distribution of number of particles vs. velocity at temperature T = 300K. Now add two other distributions at 600K and 1000K. Make a legend.
-
-4. We're going to use networks in our work the rest of the year. Let's try to plot a simple social network. These same ideas can be used to map things like your friends on facebook, but also how nuclear material moves around in the lifecycle of uranium. Use whatever program or style you would like. 
+1. We're going to use networks in our work the rest of the year. Let's try to plot a simple social network. These same ideas can be used to map things like your friends on facebook, but also how nuclear material moves around in the lifecycle of uranium. Use whatever program or style you would like. 
 
    Joe knows Jill and Kamala. Kamala also knows Doug. Both Joe and Kamala also know Barack.
 
@@ -64,7 +26,96 @@ Do not forget to label your axes and use legends when applicable!
    | Barack  | Joe     |
    | Barack  | Kamala  |
 
-   draw a graph of this network
+   We drew this graph in our last meeting, it looked something like this. But there are many ways to draw a network that are equally valid!
+
+   ![network graph for problem 1](46graph.png)
+
+   Draw a graph of this network using any package you would like. At the bottom are some network visualization packages and software you may want to try.
+
+2. The network in problem 1 is _undirected_. We also talked about edges that have directions (sometimes called arcs), which can be used to represent physical material moving between facilities (nodes). Let's draw a graph of a very simple set of nuclear facilities, which we call a nuclear fuel cycle.
+
+   | Source     | Target     |
+   |------------|------------|
+   | Mine       | Enrichment |
+   | Enrichment | Reactor    |
+   | Reactor    | Disposal   |
+
+   ![network graph for problem 2](simple_fuel_cycle.png)
+
+   This time, the order of the edges matters! If we ignore the order of the edges in the table above and just randomly draw edges from one node to another, we might accidentally end up with the network below, which is incorrect!
+
+   ![network graph for problem 2 with directed edges facing the wrong way](simple_fuel_cycle_wrong.png)
 
 
-\* These problems were mainly adaped from a freshman-year course I took and eventually TA'd at the University of Illinois, called NPRE100
+3. In the previous problems, the information was given in a table, or what is called as an edge list. This time, let's draw a graph from _pathways_, which distills a set of edges down. For example, a pathway
+
+   pathways = [A, B, C, D]
+
+   is identical to this edge list
+
+   | Source | Target |
+   | ------ | -------|
+   | A      | B      |
+   | B      | C      |
+   | C      | D      |
+
+   Drawing multiple pathways means you add, but don't duplicate, any additional edges. For example,
+
+   pathways = [A, B, C, D, E], [A, B, F, E]
+
+   is the same as
+
+   | Source | Target |
+   | ------ | -------|
+   | A      | B      |
+   | B      | C      |
+   | C      | D      |
+   | D      | E      |
+   | B      | F      |
+   | F      | E      |
+
+   
+   Note that I don't need to re-draw the edge from A to B even though it exists in both pathways. This graph will look something like this
+
+   ![graph from pathways](graph_from_pathways.png)
+
+   
+   
+   We'll talk about the pros and cons of starting from pathways at our next meeting, can you think of any?
+
+## Graph drawing resources
+
+At our last meeting, I told you that you are able to pick your own graph-drawing package. If you wanted to write one yourself, I won't stop you! (I'm also not going to recommend it, that's not going to be the most efficient way to draw graphs, and will result in major [reinventing of the wheel](https://en.wikipedia.org/wiki/Reinventing_the_wheel)).
+
+Here are some graph drawing python packages and other software to play with. You could try out several if you'd like! I have not used all of these personally. I'd recommend picking one and trying it out for these exercises. Next semester we might take some time to compare and contrast several tools at once.
+
+### [pyvis](https://pyvis.readthedocs.io/en/latest/index.html)
+
+Python package
+### [graph tool](https://graph-tool.skewed.de/)
+
+Python package
+
+### [Plotly](https://plotly.com/python/network-graphs/)
+
+Python package. Unlike many of the other python packages here, Plotly is not made primarily or exclusively for drawing graphs. 
+
+### [NetworkX]()
+
+Python package. I use it extensively in my software, but I know they make it clear that drawing/plotting graphs is not a main focus of theirs, and it may be limiting to use their tools. 
+
+### [netwulf](https://github.com/benmaier/netwulf/)
+
+Python package
+
+### [Bokeh](https://docs.bokeh.org/en/latest/index.html)
+
+Python package
+
+### [Gephi](https://gephi.org/)
+
+Separate software platform, will need data to be imported. Can the import and drawing of graphs be automated? (Not sure, real question)
+
+### [Cytoscape](https://cytoscape.org/)
+
+Separate piece of software.
