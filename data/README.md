@@ -12,4 +12,4 @@ Finally, I included a list of pathways, similar to the pathways you've played wi
 
 Start by playing around with automating these!
 
-Don't forget to update your fork!
+Don't forget to update your fork! [This issue](https://github.com/nuclearkatie/URS-github-python-practice/issues/1) reminds you how, or checkout the [Git Workflows](https://docs.google.com/presentation/d/1E37ZyFhwGERMQsMbgMp6mx3a325xpeuFOAsuiDT871E/edit) presentation (access through UW account)
