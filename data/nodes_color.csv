@@ -1,0 +1,14 @@
+Facility,Category
+mine,FrontEnd
+mill,FrontEnd
+conversion,FrontEnd
+civ_enrichment,Enrichment
+mil_enrichment,Enrichment
+tails,Enrichment
+civ_fabrication,FrontEnd
+mox_fabricator,FrontEnd
+civ_lwr,Reactor
+civ_spent_storage,StorageDisposal
+reprocessing,Reprocessing
+heu_pu_collector,Diversion
+repository,StorageDisposal
